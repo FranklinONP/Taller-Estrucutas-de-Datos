@@ -8,4 +8,7 @@ digraph Lista_Doble {
     nodo0:sig -> nodo1:ant;
     nodo1:sig -> nodo2:ant;
     nodo2:sig -> nodo3:ant;
+    nodo1:ant -> nodo0:sig [color=blue];
+    nodo2:ant -> nodo1:sig [color=blue];
+    nodo3:ant -> nodo2:sig [color=blue];
 }
