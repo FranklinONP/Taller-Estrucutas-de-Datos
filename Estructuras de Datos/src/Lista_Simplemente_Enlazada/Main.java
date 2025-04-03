@@ -24,9 +24,12 @@ public class Main {
         lista.agregar(2);
         lista.agregar(3);
         lista.agregar(4);
+        lista.agregar(100);
         
         // Imprimir la lista
         lista.imprimir(); // Salida: 1 -> 2 -> 3 -> 4 -> null
+        
+        lista.graficar("");
     
     }
     

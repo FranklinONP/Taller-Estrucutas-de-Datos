@@ -1,0 +1,9 @@
+digraph lista_simple {
+    rankdir=LR;
+    node [shape=record];
+    nodo0 [label="{ 1 | <sig>}"];
+    nodo1 [label="{ 2 | <sig>}"];
+    nodo2 [label="{ 3 | <sig>}"];
+    nodo3 [label="{ 4 | <sig>}"];
+    nodo4 [label="{ 100 | <sig>}"];
+    nodo0:sig -> nodo1    nodo1:sig -> nodo2    nodo2:sig -> nodo3    nodo3:sig -> nodo4}

@@ -1,0 +1,11 @@
+digraph Lista_Doble {
+    rankdir=LR;
+    node [shape=record];
+    nodo0 [label="{<ant> | 1 | <sig>}"];
+    nodo1 [label="{<ant> | 2 | <sig>}"];
+    nodo2 [label="{<ant> | 3 | <sig>}"];
+    nodo3 [label="{<ant> | 4 | <sig>}"];
+    nodo0:sig -> nodo1:ant;
+    nodo1:sig -> nodo2:ant;
+    nodo2:sig -> nodo3:ant;
+}
