@@ -32,7 +32,11 @@ public class Main {
         lista.printBefore(3);
         lista.printBefore(1);
         
-        lista.graficar("");
+        lista.graficar("Grafica1");
+        
+        lista.eliminar(3);
+        lista.imprimir();
+        lista.graficar("Grafica2");
     
     }
     

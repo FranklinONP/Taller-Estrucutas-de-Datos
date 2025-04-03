@@ -63,11 +63,52 @@ public class Lista {
         System.out.println("null");
     }
     
+    
+    /**
+ * Método para eliminar un nodo con un valor específico de la lista
+ * @param dato El valor del nodo que se desea eliminar
+ */
+public void eliminar(int dato) {
+    // Caso 1: Lista vacía
+    if (cabeza == null) {
+        return;
+    }
+
+    Nodo actual = cabeza;
+
+    // Caso 2: Eliminar el primer nodo (cabeza)
+    if (actual.dato == dato) {
+        cabeza = actual.siguiente;
+        if (cabeza != null) {
+            cabeza.anterior = null; // Actualizar el anterior de la nueva cabeza
+        }
+        return;
+    }
+
+    // Buscar el nodo a eliminar
+    while (actual != null && actual.dato != dato) {
+        actual = actual.siguiente;
+    }
+
+    // Caso 3: Nodo no encontrado
+    if (actual == null) {
+        return;
+    }
+
+    // Caso 4: Nodo encontrado en medio o al final
+    if (actual.anterior != null) {
+        actual.anterior.siguiente = actual.siguiente;
+    }
+    if (actual.siguiente != null) {
+        actual.siguiente.anterior = actual.anterior;
+    }
+}
+    
     // Nuevo método para graficar con Graphviz
     public void graficar(String directorio) {
         try {
             // Crear el archivo .dot
-            FileWriter writer = new FileWriter(directorio + "lista_doble.dot");
+            FileWriter writer = new FileWriter(directorio + ".dot");
             writer.write("digraph Lista_Doble {\n");
             writer.write("    rankdir=LR;\n"); // Dirección de izquierda a derecha
             writer.write("    node [shape=record];\n");
@@ -100,11 +141,11 @@ public class Lista {
             writer.close();
             
             // Generar la imagen usando el comando dot
-            String comando = "dot -Tpng " + directorio + "lista_doble.dot -o " + directorio + "lista_doble.png";
+            String comando = "dot -Tpng " + directorio + ".dot -o " + directorio + ".png";
             Process proceso = Runtime.getRuntime().exec(comando);
             proceso.waitFor(); // Esperar a que se complete la generación
             
-            System.out.println("Gráfico generado en: " + directorio + "lista_doble.png");
+            System.out.println("Gráfico generado en: " + directorio + ".png");
             
         } catch (IOException | InterruptedException e) {
             System.out.println("Error al generar el gráfico: " + e.getMessage());
